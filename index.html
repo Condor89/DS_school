@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>データサイエンス・ラボ | Corota AI Lab.</title>
+
+    <meta name="description" content="秋田県にかほ市を拠点にする現役シニアデータサイエンティストによるAI・データサイエンス個人指導。小学生から社会人まで、Pythonや機械学習を楽しくマンツーマンで学びます。">
+    <meta name="keywords" content="データサイエンス, AI学習, Python, 秋田, にかほ市, プログラミング教室, 共通テスト情報">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://あなたのドメイン.com/"> <meta property="og:title" content="データサイエンス・ラボ | Corota AI Lab.">
+    <meta property="og:description" content="現役シニアDSによるマンツーマン指導。「やりたい」をAIで形にする体験を。2回無料体験受付中。">
+    <meta property="og:image" content="https://あなたのドメイン.com/og-image.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="データサイエンス・ラボ | Corota AI Lab.">
+    <meta name="twitter:description" content="現役シニアDSと学ぶ、キミだけのAI構築。東北・秋田から全国へ。">
+    <meta name="twitter:image" content="https://あなたのドメイン.com/og-image.png">
+
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4d80; 
+            --accent: #00d2ff;  
+            --orange: #ff7e5f;  
+            --bg-light: #f0f4f8;
+            --text-main: #2c3e50;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--orange); }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            background: linear-gradient(rgba(26, 77, 128, 0.85), rgba(26, 77, 128, 0.85)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding-bottom: 120px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.3; font-weight: 800; }
+        .hero span.highlight { color: var(--accent); }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(255, 126, 95, 0.4);
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 126, 95, 0.6); }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: #06C755; 
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        section { padding: 100px 20px 60px; max-width: 1000px; margin: 0 auto; }
+        h2 { text-align: center; color: var(--primary); font-size: 2.2rem; margin-bottom: 40px; position: relative; }
+        h2::after { content: ""; display: block; width: 60px; height: 4px; background: var(--accent); margin: 15px auto 0; }
+
+        /* Pain points */
+        .pain-points { background: #fff4e5; padding: 50px 20px; border-radius: 30px; margin-bottom: 60px; }
+        .pain-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .pain-item { background: #fff; padding: 25px; border-radius: 15px; border-left: 5px solid var(--orange); }
+        .solution-arrow { text-align: center; margin: 20px 0; color: var(--primary); font-size: 2rem; }
+
+        /* Skill Cards */
+        .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .skill-card { background: white; border: 1px solid #e2e8f0; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .skill-card h3 { color: var(--primary); margin-top: 0; font-size: 1.2rem; display: flex; align-items: center; }
+        .skill-card h3 i { margin-right: 10px; color: var(--accent); }
+        .skill-card ul { padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; }
+
+        /* Info Cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .info-card { background: #fff; border: 2px solid var(--primary); padding: 25px; border-radius: 15px; text-align: center; position: relative; }
+        .price-old { text-decoration: line-through; color: #999; font-size: 1.2rem; }
+        .price-new { font-size: 2.2rem; font-weight: bold; color: var(--orange); display: block; }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; padding: 2px 15px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; }
+
+        /* Organization */
+        .org-box { background: var(--primary); color: white; padding: 50px; border-radius: 30px; margin-top: 60px; }
+        .org-tag { background: var(--accent); color: var(--primary); padding: 5px 15px; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
+
+        /* Profile */
+        .profile-container { background: var(--bg-light); padding: 50px; border-radius: 30px; display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; background: #ccc; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+        /* FAQ */
+        .faq-item { margin-bottom: 20px; background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; }
+        .faq-item h4 { color: var(--primary); margin: 0 0 10px 0; display: flex; align-items: flex-start; font-size: 1.1rem; }
+        .faq-item h4::before { content: "Q."; color: var(--orange); margin-right: 10px; font-weight: bold; }
+        .faq-answer { display: flex; font-size: 0.95rem; line-height: 1.6; }
+        .faq-answer::before { content: "A."; color: var(--accent); margin-right: 10px; font-weight: bold; }
+
+        footer { background: #0b1a2a; color: white; text-align: center; padding: 60px 20px; }
+        .contact-link { color: var(--accent); text-decoration: none; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .profile-container { flex-direction: column; text-align: center; }
+            .floating-cta { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">データサイエンス・ラボ</a>
+        <div class="nav-links">
+            <a href="#problem-solving">悩み解決</a>
+            <a href="#details">概要・料金</a>
+            <a href="#curriculum">学習内容</a>
+            <a href="#instructor">講師</a>
+            <a href="#faq">Q&A</a>
+            <a href="legal.html">利用規約</a>
+            <a href="#contact" style="color: var(--orange);">無料体験予約</a>
+        </div>
+    </nav>
+
+    <a href="https://lin.ee/IQm1IVT" class="floating-cta">
+        <i class="fab fa-line fa-lg"></i>
+        <span>無料体験を予約する</span>
+    </a>
+
+    <header class="hero">
+        <p style="font-weight: bold; letter-spacing: 3px; color: var(--accent);">Corota AI Lab. ✕ データサイエンス・ラボ</p>
+        <h1>「やりたい」をAIで形にする。<br><span class="highlight">楽しむ</span>データサイエンス。</h1>
+        <p>現役シニアDSによるマンツーマン指導。キミだけの「動くAI」を一緒に作ろう。</p>
+        <a href="https://lin.ee/IQm1IVT" class="cta-button">2回無料体験を申し込む</a>
+    </header>
+
+    <section id="problem-solving">
+        <h2>こんな「困りごと」ありませんか？</h2>
+        <div class="pain-points">
+            <div class="pain-list">
+                <div class="pain-item">
+                    <strong>【小学生の保護者の方】</strong>
+                    <p>ゲームやYouTubeばかりで、もっと将来に役立つ創造的なことにPCを使ってほしいけれど、何から始めたらいいかわからない…</p>
+                </div>
+                <div class="pain-item">
+                    <strong>【中高生の保護者の方】</strong>
+                    <p>共通テストに「情報」が増えるけれど、ただ暗記するだけの勉強では身につかなそう。プロの視点で本質を教えてほしい…</p>
+                </div>
+                <div class="pain-item">
+                    <strong>【社会人の方】</strong>
+                    <p>AIやDXと言われるが、自分の業務にどう活かせばいいか、相談できるプロが身近にいない。今のうちにスキルを磨きたい…</p>
+                </div>
+            </div>
+            <div class="solution-arrow"><i class="fas fa-chevron-down"></i></div>
+            <div style="text-align: center; font-size: 1.4rem; font-weight: bold; color: var(--primary);">
+                その悩み、現役のシニアデータサイエンティストが<br>「楽しみながら動くAIを作る体験」で解決します。
+            </div>
+        </div>
+    </section>
+
+    <section id="details">
+        <h2>コース概要</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>対象年齢</h3>
+                <p style="font-size: 1.1rem; font-weight: bold;">小学校5年生 〜 社会人</p>
+                <p>レベルに合わせて難易度を完全調整。大人の方の学び直しも歓迎します。</p>
+            </div>
+            <div class="info-card">
+                <h3>スケジュール</h3>
+                <p style="font-size: 1.1rem; font-weight: bold;">毎週 土曜日 11:00 〜 12:00</p>
+                <p>週1回（月4回）のオンライン個別授業。</p>
+            </div>
+            <div class="info-card">
+                <div class="badge">開校記念モニター価格</div>
+                <h3>月謝</h3>
+                <span class="price-old">通常 20,000円</span>
+                <span class="price-new">10,000円 <span style="font-size: 1rem;">(税込)</span></span>
+                <p style="font-size: 0.85rem; margin-top: 5px;">※先着5名様限定。教材費込み。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum">
+        <h2>対応可能な学習・実践事項</h2>
+        <div class="skill-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-chart-line"></i> データ分析・統計</h3>
+                <ul>
+                    <li>Pythonを用いたデータの可視化</li>
+                    <li>身近なデータ（天気・ゲーム等）の分析</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-robot"></i> 機械学習・AI構築</h3>
+                <ul>
+                    <li>「明日の数値を当てる」予測モデル</li>
+                    <li>画像認識AI（写真から物を判別）の体験</li>
+                    <li>自分だけのAIエージェント構築</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-laptop-code"></i> ビジネス・DX実践</h3>
+                <ul>
+                    <li>業務効率化のPython自動化ツール</li>
+                    <li>生成AIを使いこなす指示術（プロンプト）</li>
+                    <li>AI導入のプロトタイプ作成支援</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="organization">
+        <div class="org-box">
+            <span class="org-tag">運営組織</span>
+            <h2 style="color: white; text-align: left; margin: 20px 0; font-size: 1.8rem; border: none;">Corota AI Lab.</h2>
+            <p>秋田県にかほ市を拠点に活動する、にかほ市商工会所属の個人事業組織です。<br>
+               地域のAI活用課題の解決、および次世代のデジタル人材育成をミッションとしています。</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0;">
+            <p><strong>【法人・団体の皆さまへ】</strong><br>
+               企業のDX推進、AI導入課題のコンサルティングも承っております。技術的なご相談は以下のメールアドレスまでお問い合わせください。</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:corota.ai.lab@gmail.com" style="color: var(--accent); text-decoration: none;">corota.ai.lab@gmail.com</a></p>
+        </div>
+    </section>
+
+    <section id="instructor">
+        <h2>講師について</h2>
+        <div class="profile-container">
+            <div class="profile-img">
+                <i class="fas fa-user-circle fa-10x" style="color: #cbd5e0; font-size: 180px;"></i>
+            </div>
+            <div class="profile-text">
+                <h3>シニアデータサイエンティスト</h3>
+                <p><strong>経歴：</strong>国内最大手の人材サービス企業（P社）にて、AI開発を担当。現役のシニアデータサイエンティストです。</p>
+                <p><strong>想い：</strong>にかほ市商工会所属の「Corota AI Lab.」として、AI技術を楽しく伝えます。地域のデジタル課題にプロの視点から伴走します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>よくあるご質問（Q&A）</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h4>数学や算数が苦手な子でも大丈夫でしょうか？</h4>
+                <div class="faq-answer">
+                    <p><strong>全く問題ありません。</strong> 計算はコンピュータに任せ、まずは「AIがどう考えているか」を直感的に理解することから始めます。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h4>2025年からの「情報Ⅰ」に役立ちますか？</h4>
+                <div class="faq-answer">
+                    <p><strong>非常に役立ちます。</strong> データの分析・統計について楽しみながら本質的な知識が身につきます。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h4>どのようなPCの準備が必要ですか？</h4>
+                <div class="faq-answer">
+                    <p><strong>学校配布のPC等でOKです。</strong> Webブラウザ上で動作するシステムを使うため、高価なPCを新調する必要はありません。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h4>社会人ですが、実務の相談は可能ですか？</h4>
+                <div class="faq-answer">
+                    <p><strong>大歓迎です。</strong> 業務効率化や予測モデル構築など、実務経験豊富な講師が現場で使える技術をサポートします。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h4>ChatGPTなどのAIがあれば、学ぶ必要はないのでは？</h4>
+                <div class="faq-answer">
+                    <p><strong>「AIを使いこなす側」になるためです。</strong> AIの結果を検証し、正しく導ける「仕組みを知る人」こそがこれからの時代に求められます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <div style="background: #fff4e5; border: 2px dashed var(--orange); padding: 40px; border-radius: 20px; display: inline-block; max-width: 600px;">
+            <h3 style="color: var(--orange); margin-top: 0;">2回セットの無料体験実施中</h3>
+            <p>まずは公式LINEから、あなたの「やりたい」を教えてください。<br>
+            ※現在<strong>【先着5名様】</strong>のみの受付です。</p>
+            <br>
+            <a href="https://lin.ee/IQm1IVT" class="cta-button" style="background: #06C755;">
+                <i class="fab fa-line"></i> LINEで相談・体験予約
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9rem;">
+                メール：<a href="mailto:corota.ai.lab@gmail.com" class="contact-link">corota.ai.lab@gmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Corota AI Lab. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">
+            <a href="legal.html" class="contact-link" style="margin: 0 10px;">特定商取引法に基づく表記・利用規約</a>
+        </p>
+    </footer>
+
+</body>
+</html>
